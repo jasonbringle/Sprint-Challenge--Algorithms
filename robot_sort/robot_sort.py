@@ -96,8 +96,34 @@ class SortingRobot:
         """
         Sort the robot's list.
         """
-        # Fill this out
-        pass
+        #Turn on Robots light
+            #if robots light is on start sorting
+            while self.light_is_on():
+                if not self.light_is_on:
+                    #Look at current position and compare it to the item in robots hand
+                    #if the item in hand or the item in the list is unfound
+                    if self.compare_item() == None:
+                        #If you can move right....
+                        if self.can_move_right():
+                            #Swapping will establish a list item to look ata and compare
+                            self.swap_item()
+                        #Else return which will take you out of the function
+                        else:
+                            return
+                    #Compare the item to the position and if item is greater
+                    if self.compare_item() == -1:
+                        #Swap them
+                        self.swap_item()
+                    else:
+                        #Else turn the light on to keep iterating 
+                        self.set_light_on()
+                
+                if self.light_is_on:
+
+        #####THIS ROBOT IS BROKEN... flex please
+            
+
+        
 
 
 if __name__ == "__main__":
